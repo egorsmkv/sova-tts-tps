@@ -3,6 +3,7 @@ from collections import OrderedDict
 from typing import Union, Pattern, Iterator
 
 from nltk import sent_tokenize, word_tokenize
+from tokenize_uk import tokenize_text, tokenize_words, tokenize_sents
 
 from tps.utils import split_to_tokens
 from tps.modules.ssml.elements import Pause
@@ -235,7 +236,10 @@ class Processor:
 
         :return: list
         """
-        parts = sent_tokenize(text, language)
+        if language == "ukrainian":
+            parts = tokenize_sents(text)
+        else:
+            parts = sent_tokenize(text, language)
 
         if keep_delimiters:
             for i in range(1, len(parts)):
