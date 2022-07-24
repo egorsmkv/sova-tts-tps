@@ -473,6 +473,12 @@ def _get_default_modules(charset, data_dir=None, verify_checksum=True, silent=Fa
             md.BlindReplacer([yo_dict, "plane"], name="Yoficator"),
             md.RuEmphasizer([stress_dict, "plane"], True)
         ])
+    elif charset == _types.Charset.uk:
+        stress_dict = _get_file("stress.dict", data_dir, verify_checksum, not silent)
+
+        modules.extend([
+            md.UkEmphasizer([stress_dict, "plane"], True)
+        ])
     elif charset == _types.Charset.en:
         pass
     elif charset == _types.Charset.en_cmu:

@@ -3,7 +3,7 @@ from collections import OrderedDict
 from typing import Union, Pattern, Iterator
 
 from nltk import sent_tokenize, word_tokenize
-from tokenize_uk import tokenize_text, tokenize_words, tokenize_sents
+from tokenize_uk import tokenize_sents
 
 from tps.utils import split_to_tokens
 from tps.modules.ssml.elements import Pause
